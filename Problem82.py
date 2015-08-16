@@ -22,16 +22,13 @@ def partialSum(B,i,j):
 
 #test the partial Sum functions
 A = [1,2,3,4,5,6,7,8,9,10]
-#ps = partialSumA(A)
-#print 'partialSum',partialSum(A,0,10),sum(A[0:11])
+
 
 def MinPathSum3ways(A):
     n = len(A)
     minPathSF = column(A,0)
-    #minPathSF = A[0]
     for i in xrange(1,n):
         minPathSF = nextStep(minPathSF,column(A,i))
-        #minPathSF = nextStep(minPathSF,A[i])
     return min(minPathSF)
 
 def nextStep(A,B):
@@ -41,11 +38,9 @@ def nextStep(A,B):
     ps = partialSumA(B)
     for i in xrange(n):
         for j in xrange(i+1):
-            #print 'j,i',i,j
             newMinPath[i] = min(newMinPath[i],A[j]+partialSum(B,j,i+1))
             #newMinPath[i] = min(newMinPath[i],A[j]+sum(B[j:i+1]))
         for j in xrange(i+1,n):
-            #print i,j
             newMinPath[i] = min(newMinPath[i], A[j]+partialSum(B,i,j+1))
             #newMinPath[i] = min(newMinPath[i], A[j]+sum(B[i:j+1]))
     return newMinPath
