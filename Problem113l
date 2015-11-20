@@ -1,0 +1,23 @@
+"""Solution based on a recursive formula. I will be using dynamic programming or is it
+memoization?"""
+
+InAr = [[-1 for i in xrange(10)] for i in xrange(10)]
+DeAr = [[-1 for i in xrange(10)] for i in xrange(10)]
+
+
+def incrNum(n,r):
+    if n==1:
+        return 1
+    if r == 0:
+        InAr[n][r]=1
+        return 1
+    if InAr[n][r]==-1:
+        s = 0
+        for i in xrange(0,r+1):
+            s+=incrNum(n-1,i)
+        InAr[n][r] = s
+        return InAr[n][r]
+    else:
+        return InAr[n][r]
+
+print incrNum(7,9)
