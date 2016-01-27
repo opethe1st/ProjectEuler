@@ -5,12 +5,12 @@ This reminds of an earlier problem.I will have to check """
 import math
 import time as t
 i = 10
-def sumofdigits(n):
+def sumofdigits(n,b):
     s = 0
     while n>0:
-        d = n%10
+        d = n%b
         s+=d
-        n/=10
+        n/=b
     return s
 
 #print sumofdigits(12345)
@@ -39,7 +39,7 @@ start = t.time()
 seq = []
 count = 0
 for p in generatePowers(10e10):
-    if isPower(sumofdigits(p),p):
+    if isPower(sumofdigits(p,10),p):
         print p,
         seq.append(p)
         count+=1
