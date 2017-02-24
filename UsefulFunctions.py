@@ -28,8 +28,8 @@ def miller_rabin(m, k):
         t /= 2
         s += 1
 
-    for r in range(0,k):
-        rand_num = random.randint(1,m-1)
+    for r in [2,3,5,7,11,13,17,19]:
+        rand_num = r#random.randint(1,m-1)
         y = pow(rand_num, t, m)
         prime = False
 
